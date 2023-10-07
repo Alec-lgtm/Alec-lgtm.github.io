@@ -1,7 +1,30 @@
 ---
-title: "Alec-lgtm.github.io"
+title: "Alec Chen"
+image: resume-photo.png
+toc: false
+about: 
+  template: trestles
+  image-shape: round
+  image-width: 20em
+  links:
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/alec-chen-a1a988292/
+    - text: GitHub
+      href: https://github.com/Alec-lgtm
+    - text: Email
+      href: alecgchen@gmail.com
 ---
 
-This is a Quarto website.
+# Hi there
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+I'm Alec, a passionate data science major interested in machine learning and computational biology
+
+My hobbies include: Swimming and Billards.
+
+# Education
+
+Student at Macalester
+
+# Experience
+
+Future Data Science Intern at Macalester!
