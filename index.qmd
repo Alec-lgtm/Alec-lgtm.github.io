@@ -1,6 +1,6 @@
 ---
 title: "Alec Chen"
-image: alec-photo-2.png
+image: alec-photo-3.jpg
 toc: false
 about: 
   template: trestles
