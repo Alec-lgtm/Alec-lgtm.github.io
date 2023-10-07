@@ -1,6 +1,6 @@
 ---
 title: "Alec Chen"
-image: resume-photo.png
+image: alec-photo-2.png
 toc: false
 about: 
   template: trestles
@@ -19,7 +19,9 @@ about:
 
 I'm Alec, a passionate data science major interested in machine learning and computational biology
 
-My hobbies include: Swimming and Billards.
+# Hobbies
+
+I'm an avid pool player (the billard kind) and swimmer. I love running as many racks as possible in the pool halls.
 
 # Education
 
@@ -27,4 +29,4 @@ Student at Macalester
 
 # Experience
 
-Future Data Science Intern at Macalester!
+Future Data Science Intern at Macalester!!!!
