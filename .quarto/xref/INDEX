@@ -10,5 +10,11 @@
   },
   "projects.qmd": {
     "projects.html": "b7491b73"
+  },
+  "projects/tank-trouble.qmd": {
+    "tank-trouble.html": "0045d772"
+  },
+  "projects/tank-trouble/tank-trouble.qmd": {
+    "tank-trouble.html": "3fe2bf29"
   }
 }

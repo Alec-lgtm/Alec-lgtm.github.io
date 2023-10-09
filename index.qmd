@@ -1,8 +1,9 @@
 ---
 title: "Alec Chen"
-image: alec-photo-3.jpg
+image: /images/alec-photo-cropped-1.jpg
 toc: false
 about: 
+  id: intro-heading
   template: trestles
   image-shape: round
   image-width: 20em
@@ -12,21 +13,15 @@ about:
     - text: GitHub
       href: https://github.com/Alec-lgtm
     - text: Email
-      href: alecgchen@gmail.com
+      href: mailto:alecgchen@gmail.com
 ---
 
-# Hi there
+# About Me
 
-I'm Alec, a passionate data science major interested in machine learning and computational biology
+Hi, I'm Alec, a data science major at Macalester College. I'm passionate about using data to solve real-world problems and make a positive impact on the world.
 
-# Hobbies
+My particular interests are in biology and healthcare, where I believe data-driven insights can lead to more accurate and effective predictions of RNA structures, and to the identification and elimination of disparities in healthcare access and outcomes.
 
-I'm an avid pool player (the billard kind) and swimmer. I love running as many racks as possible in the pool halls.
+I'm also a big fan of swimming, playing pool, listening to podcasts, and reading. I'm always looking for new challenges and opportunities to learn and grow.
 
-# Education
-
-Student at Macalester
-
-# Experience
-
-Future Data Science Intern at Macalester!!!!
+If you have any questions or would like to connect, please don't hesitate to contact me.
