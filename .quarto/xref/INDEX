@@ -16,5 +16,11 @@
   },
   "projects/tank-trouble/tank-trouble.qmd": {
     "tank-trouble.html": "3fe2bf29"
+  },
+  "projects/bird-viz/bird-viz.qmd": {
+    "bird-viz.html": "153f415d"
+  },
+  "projects/tank-trouble/tank-trouble 2.qmd": {
+    "tank-trouble 2.html": "adc7ec64"
   }
 }

@@ -29,7 +29,7 @@ Our team embraced essential object-oriented programming principles to create a w
 
 ## Challenges
 
-#### Getting Tank to Move
+### Getting Tank to Move
 
 To achieve smooth tank movement in Tank Trouble, a fundamental challenge was converting XY coordinates to polar coordinates. The tanks' movement is controlled using directional input or angles. These angles are typically represented in polar coordinates, where the direction and distance from a reference point (the tank's current position) are used to determine the tank's new position.
 
@@ -37,7 +37,7 @@ By converting XY coordinates to polar coordinates, the game can effectively inte
 
 ![](images/coordinate-plane.png)
 
-#### Getting Tank to Shoot
+### Getting Tank to Shoot
 
 Achieving precise and consistent tank shots in Tank Trouble posed a significant challenge due to disparities between the angle input from the tank and the actual angle at which the ball was fired. Initially, shots would often veer off in unexpected directions, leading to frustration for players (and the developers). To rectify this issue, a meticulous process was undertaken to align the ball's firing angle with the tank's cannon orientation.
 
@@ -48,7 +48,7 @@ This process involved extensive testing and experimentation to determine the cor
 
 Additionally, adjustments to the distance (r) at which the ball was spawned from the tank's center were made through trial and error. This comprehensive approach ensured that tank shots in Tank Trouble were not only accurate but also consistent, allowing players to strategize and engage in thrilling tank battles within the maze environment.
 
-#### Getting Wall and Tank Collision
+### Getting Wall and Tank Collision
 
 To ensure basic game functionality, we had to develop a reliable collision detection system between the tanks and the walls. To address this, we pinpointed critical locations around the tank to cover the tank's entire surface: the cannon's tip and the tank's four corners.
 
