@@ -2,6 +2,7 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/projects/iris.html",
       "/projects/tank-trouble/tank-trouble.html",
       "/projects/bird-viz/bird-viz.html"
     ]

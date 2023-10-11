@@ -1,6 +1,12 @@
 ---
 title: "Euro-African Bird Migration Shiny App (Under Construction)"
-filters: 
+format: 
+  html:
+      grid: 
+        body-width: 1400px
+      resources:
+        - shinylive-sw.js
+filters:
   - shinylive
 ---
 

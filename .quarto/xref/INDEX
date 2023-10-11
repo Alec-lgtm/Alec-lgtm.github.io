@@ -25,5 +25,11 @@
   },
   "projects/bird-viz/bird-viz-1.qmd": {
     "bird-viz-1.html": "16deef83"
+  },
+  "projects/iris/iris.qmd": {
+    "iris.html": "513df29c"
+  },
+  "projects/iris.qmd": {
+    "iris.html": "17e302b0"
   }
 }
