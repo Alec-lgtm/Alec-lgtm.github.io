@@ -23,12 +23,6 @@ birds <- birds %>%
 
 ui <- fluidPage(
   theme = shinytheme("flatly"),
-  # tags$head(tags$style(HTML("
-  #                         body > nav{
-  #                         margin-bottom:0 !important;}
-  #                         body > div.container-fluid{
-  #                         padding:0;}
-  #                           "))),
   navbarPage(title = "Bird Migration Flows",
              tabPanel(title = "About",
                       verticalLayout(
