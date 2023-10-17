@@ -142,12 +142,6 @@ birds &lt;- birds %&gt;%
 
 ui &lt;- fluidPage(
   theme = shinytheme("flatly"),
-  # tags$head(tags$style(HTML("
-  #                         body &gt; nav{
-  #                         margin-bottom:0 !important;}
-  #                         body &gt; div.container-fluid{
-  #                         padding:0;}
-  #                           "))),
   navbarPage(title = "Bird Migration Flows",
              tabPanel(title = "About",
                       verticalLayout(
