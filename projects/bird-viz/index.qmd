@@ -1,0 +1,45 @@
+---
+title: "Bird Migration Flows Analysis and Awareness"
+description: |
+  An ShinyApp to visualize bird migration and understand how bird migration patterns vary by region
+date: 12-13-2023
+image: storks.gif
+format: html
+server: shiny
+---
+
+## Overview
+The "Bird Migration Flows" project is a Shiny web application that aims to shed light on the fascinating world of bird migration, with a particular focus on European robins and white storks. This project combines data analysis, visualization, and educational components to provide insights into the migration patterns of these avian species, as well as the challenges they face during their incredible journeys. You can find a link to our app [here](https://alecchen.shinyapps.io/Bird_Migration_Patterns/).
+
+![European Robin | Photo from ebird.org](euro_robin.jpeg)
+
+## Project Objectives
+- Educational Outreach: The project's primary goal is to raise awareness about bird migration, highlighting its significance in the natural world. It delves into the intricate details of why, when, and how birds migrate, emphasizing the role of environmental factors and human activities.
+
+- Data Analysis: The project utilizes satellite data to track the movements of European robins and white storks during their migrations. It explores variables such as latitude, longitude, speed, and altitude to gain a comprehensive understanding of their behavior.
+
+- Visualization: Through interactive plots and visualizations, users can explore the altitude and speed of these birds over time. This allows for a better grasp of the spatial and temporal aspects of their migrations.
+
+![European Robin Migration](good.gif)
+
+## Key Features
+- Educational Content: The "About" tab offers a detailed overview of bird migration, emphasizing its ecological importance and the challenges faced by migratory birds.
+
+- Fun Facts: The "Fun Facts" tab provides a quick and engaging way for users to learn interesting facts about bird migration, encouraging curiosity and appreciation for these remarkable creatures.
+
+- Data Analysis: The "Findings" tab presents the results of the data analysis, showcasing the migration patterns of European robins and white storks. It demonstrates how satellite data and weather radar observations contribute to our understanding of bird behavior.
+
+- Interactive Visualizations: Users can interact with visualizations that display bird altitude and speed over time, offering insights into the dynamics of migration.
+
+- Considerations: The "Considerations" tab addresses the challenges and threats faced by migratory birds, including window collisions, tower strikes, and air pollution. It calls for increased awareness and conservation efforts to protect these birds and their habitats.
+
+## Significance
+Bird migration is a critical ecological process that helps maintain biodiversity and balance in ecosystems. By creating a platform that educates and informs the public about bird migration and the challenges birds face, this project contributes to the broader goal of wildlife conservation. It emphasizes the importance of responsible environmental stewardship and the need to protect migratory bird species.
+
+## Future Directions:
+This project can serve as a foundation for further research into bird migration patterns and the development of conservation initiatives. Future iterations could include real-time bird tracking data, additional bird species, and more detailed analyses of specific migration routes.
+
+## Acknowledgements
+- Data Source: ENRAM (European Network for the Radar Surveillance of Animal Movement) and Sri Sai Krishna N
+
+- Advisor: Brianna Heggeseth

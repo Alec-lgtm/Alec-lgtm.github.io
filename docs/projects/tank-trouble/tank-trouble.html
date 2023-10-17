@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2023-05-01">
+<meta name="description" content="This project is a recreation of the game Tank Trouble! using object-oriented programming concepts.">
 
 <title>Alec Chen - Tank Trouble!</title>
 <style>
@@ -33,7 +35,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -103,7 +104,6 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
   <ul>
   <li><a href="#design-rationale" id="toc-design-rationale" class="nav-link active" data-scroll-target="#design-rationale">Design Rationale</a></li>
   <li><a href="#object-oriented-programming-concepts" id="toc-object-oriented-programming-concepts" class="nav-link" data-scroll-target="#object-oriented-programming-concepts">Object-Oriented Programming Concepts</a></li>
@@ -119,37 +119,41 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-about-solana column-body">
+  <div class="about-entity">
+    <div class="entity-contents">
+      <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Tank Trouble!</h1>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
+<div>
+  <div class="description">
+    <p>This project is a recreation of the game Tank Trouble! using object-oriented programming concepts.</p>
   </div>
-  
-
-</header>
+</div>
+<div class="quarto-title-meta">
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 1, 2023</p>
+    </div>
+  </div>
+  </div>
+</header> 
+      <div class="about-contents"><main class="content" id="quarto-document-content">
 
 <p>This past spring, two of my classmates at Macalester College (Elisa Avalos and Sydney Ohr) I decided create a replica of the game Tank Trouble for our Object-Oriented Programming and Abstraction class.</p>
 <p><strong>About the Game</strong></p>
 <p>Tank Trouble is a one versus one game where players navigate a complex maze and fire bullets to destroy the other tank. Each player gets gets five bullets and no reloads. After you shoot, bullets don’t disappear from the screen so be careful! Each time you destroy the other persons tank you get a point and first person to ten points wins!</p>
 <p><img src="images/tank.jpg" class="img-fluid"></p>
 <section id="design-rationale" class="level2">
-<h2 class="anchored" data-anchor-id="design-rationale">Design Rationale</h2>
+<h2 data-anchor-id="design-rationale">Design Rationale</h2>
 <p>In the development of Tank Trouble, we have prioritized clarity and organization. At the core of our design is the GameManager, which manages various aspects of the game, including handling collisions between in-game objects, tracking player points, and start and stop screens. The TankTroubleGame class (main) serves as the engine of the game that combines all components of the project. Our MazeManager class is responsible for generating the maze with walls that act as barriers within the game world. Throughout the development process, we committed to making clean and organized code to ensure easier maintenance and debugging of the game.</p>
 <p>Here is one of our initial class diagrams:</p>
 <p><img src="images/design-flow.png" class="img-fluid"></p>
 </section>
 <section id="object-oriented-programming-concepts" class="level2">
-<h2 class="anchored" data-anchor-id="object-oriented-programming-concepts">Object-Oriented Programming Concepts</h2>
+<h2 data-anchor-id="object-oriented-programming-concepts">Object-Oriented Programming Concepts</h2>
 <p>Our team embraced essential object-oriented programming principles to create a well-organized and flexible codebase. We applied the principle of encapsulation by centralizing game management within the GameManager, which promotes data integrity and effective data management. The use of inheritance established a clear hierarchy among game elements, with Wall inheriting from Rectangle, enabling efficient game logic expansion and maintenance. We leveraged the principle of polymorphism to ensure that objects like Walls and Balls share a common interface for collision detection, facilitating code reuse and adaptability.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -165,32 +169,32 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="challenges" class="level2">
-<h2 class="anchored" data-anchor-id="challenges">Challenges</h2>
+<h2 data-anchor-id="challenges">Challenges</h2>
 <section id="getting-tank-to-move" class="level3">
-<h3 class="anchored" data-anchor-id="getting-tank-to-move">Getting Tank to Move</h3>
+<h3 data-anchor-id="getting-tank-to-move">Getting Tank to Move</h3>
 <p>To achieve smooth tank movement in Tank Trouble, a fundamental challenge was converting XY coordinates to polar coordinates. The tanks’ movement is controlled using directional input or angles. These angles are typically represented in polar coordinates, where the direction and distance from a reference point (the tank’s current position) are used to determine the tank’s new position.</p>
 <p>By converting XY coordinates to polar coordinates, the game can effectively interpret user input or predefined movement commands. For example, if a player presses a key to move the tank forward, the game can calculate the corresponding polar coordinates (angle and distance) and update the tank’s position accordingly. This conversion simplifies the navigation logic, making it easier to control the tank’s movement and direction within the game’s maze-like environment.</p>
 <p><img src="images/coordinate-plane.png" class="img-fluid"></p>
 </section>
 <section id="getting-tank-to-shoot" class="level3">
-<h3 class="anchored" data-anchor-id="getting-tank-to-shoot">Getting Tank to Shoot</h3>
+<h3 data-anchor-id="getting-tank-to-shoot">Getting Tank to Shoot</h3>
 <p>Achieving precise and consistent tank shots in Tank Trouble posed a significant challenge due to disparities between the angle input from the tank and the actual angle at which the ball was fired. Initially, shots would often veer off in unexpected directions, leading to frustration for players (and the developers). To rectify this issue, a meticulous process was undertaken to align the ball’s firing angle with the tank’s cannon orientation.</p>
 <p>This process involved extensive testing and experimentation to determine the correct transformation needed to match the tank’s input angle to the ball’s trajectory angle. Spawned lines were used to estimate the ball’s path, enabling developers to fine-tune the transformation process. The breakthrough came in the form of a transformation factor of 1045 * π * (angle given by the tank), which bridged the angle disparity effectively.</p>
 <p><img src="images/tank-lines-1.jpg" class="img-fluid" style="width:45.0%"> <img src="images/tank-lines-2.jpg" class="img-fluid" style="width:45.0%"> :::</p>
 <p>Additionally, adjustments to the distance (r) at which the ball was spawned from the tank’s center were made through trial and error. This comprehensive approach ensured that tank shots in Tank Trouble were not only accurate but also consistent, allowing players to strategize and engage in thrilling tank battles within the maze environment.</p>
 </section>
 <section id="getting-wall-and-tank-collision" class="level3">
-<h3 class="anchored" data-anchor-id="getting-wall-and-tank-collision">Getting Wall and Tank Collision</h3>
+<h3 data-anchor-id="getting-wall-and-tank-collision">Getting Wall and Tank Collision</h3>
 <p>To ensure basic game functionality, we had to develop a reliable collision detection system between the tanks and the walls. To address this, we pinpointed critical locations around the tank to cover the tank’s entire surface: the cannon’s tip and the tank’s four corners.</p>
 <p>We methodically evaluated each point along the line connecting these designated reference points. Whenever one of these points intersected with a wall element, we implemented a mechanism to halt vertical tank movement, effectively putting a stop to forward and backward tank motion.</p>
 </section>
 </section>
 <section id="demo" class="level2">
-<h2 class="anchored" data-anchor-id="demo">Demo</h2>
+<h2 data-anchor-id="demo">Demo</h2>
 <p><img src="images/tank-trouble-begin.gif" class="img-fluid" style="width:45.0%"> <img src="images/tank-trouble-end.gif" class="img-fluid" style="width:45.0%"></p>
 </section>
 <section id="known-issues" class="level2">
-<h2 class="anchored" data-anchor-id="known-issues">Known Issues</h2>
+<h2 data-anchor-id="known-issues">Known Issues</h2>
 <ul>
 <li><p>Corner Glitch: Occasionally, players can exploit a corner glitch where tanks partially overlap walls allowing balls to pass through corners.</p></li>
 <li><p>Ball Escape: Rarely, balls fired during gameplay may exit the maze when the canvas resets between rounds, leading to unexpected outcomes.</p></li>
@@ -201,8 +205,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 </section>
-
-</main> <!-- /main -->
+</main></div>
+    </div>
+  </div>
+</div>
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -223,13 +230,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
