@@ -1,0 +1,179 @@
+---
+title: "Sentiment Analysis on Vox Podcasts: Insights into the Voice of News"
+date: 12-01-2024
+about:
+  template: solana
+editor: visual
+author: Aki Wada and Alec Chen
+---
+
+
+
+```{r, echo = FALSE, message = FALSE}
+library(tidyverse)
+load("visualizations_worspace.RData")
+```
+
+## Sentiment Analysis on Vox Podcasts: Insights into the Voice of News
+
+In the modern era it seems that people are moving farther and farther away from print media. With the advent of the 24 hour news cycle started at the turn of the century and the ever present diminishing attention span, People are now consuming their news in different media than their parents generation. Even as newspapers evolve more to be online in forms of online posts and websites, more people are more engaged in media that can be listened to. So as news changes the way it is dispersed how does that change the way news is received?
+
+In our project we are specifically looking at the "sentiment" of podcast episodes and news articles. First we wanted to get a consistent type of content from both the articles and the podcast. So we decided that meant we used the same source for both, Vox. Vox has both a news podcast section called "Voxxed: Explained" and a standard print news section.
+
+### Big Questions
+
+Given the breadth and depth of Vox's catalog of articles and podcasts, we decided to focus on two main areas in the comparison between Vox podcasts and articles.
+
+-   What is the overall sentiment across Vox's podcasts, and how does it vary by topic?
+
+-   Does sentiment shift during specific episodes, perhaps reflecting the emotional arc of the conversation?
+
+We conducted this analysis on all vox podcasts and vox articles up to December 16th 2024.
+
+### Getting the Data
+
+We scraped 1980 articles from 2024-2025 from the vox.com website using the `rvest` package. We filtered articles that were chronologies / timelines of major events that occurred those aren't exactly articles. We also removed articles that were aggregations of links to other articles but had little to no text.
+
+We downloaded all the 256 podcast transcripts from the vox [google drive](https://drive.google.com/drive/u/0/folders/1XCO3CPKvMqIwJFqLGDMrIic2opQV0YWP). We removed all non-alphanumeric letters since they didn't provide any emotional connotation.
+
+### Word Frequency Analysis
+
+We first analyzed the distribution of words in vox podcasts and vox articles. We took the top twenty most frequent words out of the vox podcasts and vox articles. We removed words that provided no emotional meaning like "and" and "the".
+
+![](figures/vox_podcasts_top_words.png)
+
+For vox podcasts, words like "like," "know," "think," and "really" suggest that the conversational and relatable tone of Vox podcasts remains a strong characteristic. Recurring words like "Trump" and "Noel" indicate important and recurring characters on the show. In this case, "Noel" and "Sean" are both the authors of the podcast so their names are frequent words where the word "Trump" indicates that the Vox podcast talks about Trump a significant amount of the time.
+
+![](figures/vox_articles_top_words.png)
+
+In vox articles, we see similar informal language like "like" and "also". The topics are similar with the word "Trump" ranking similarly highly among vox articles. This suggests both vox podcasts and articles have a slightly positive to neutral tone
+
+We can visualize these word frequencies in a word cloud. Below is the word cloud for vox podcasts. The green word "people" and smaller in size purple word "right" indicate that Vox podcast is a human-centric podcast focused on correct decisions in terms of societal good.
+
+![Vox Podcast Word Cloud](figures/vox_podcasts_wordcloud.png)
+
+The vox article word cloud shows many of the same words but notably, the word "know" is missing. Of note, many of the smaller words on the vox article word cloud indicate much more formal language. For example words like "government", state" and "law" in the vox articles can be constrasted with words like "things", "part" and "yeah" from the vox podcast.
+
+![Vox Article Word Cloud](figures/vox_articles_wordcloud.png)
+
+Overall, this suggests that while both vox podcasts and articles have a generally informal and approachable tone, vox articles are more formal than vox podcasts.
+
+However, word frequency cannot tell the full story since it lacks the temporal and sequential nature of podcasts and articles. These metrics are aggregated over all podcasts and articles so we cannot know exactly when an the tone shifts in a conversation in a podcast or an article. As such we performed a more rigorous analysis of the sentiment in vox articles and podcasts using the package Syuzhet.
+
+### Sentiment Analysis
+
+You might be asking what is sentiment analysis? how does it work? Well sentiment analysis is a technique used to determine the emotional tone behind a body of text.
+
+In our analysis, we used a simple form a sentiment analysis that assigns every word with an emotional valence. Binary sentiment analysis will simply find if a word evokes a positive emotion or a negative emotion. There are more complex forms of sentiment analysis that take in multiple emotions. For example, the NRC Emotion Lexicon is a resource developed by the National Research Council of Canada that maps each individual word to an numerical value of emotion ie anger, fear, joy. We decided to use the Syuzhet sentiment analysis package since the process of building our own model would not have been as accurate or efficient as a pre-built model.
+
+#### Pre-processing
+
+We conducted the majority of our analysis in the year 2024-2025 since that was the year with the most consistent podcast upload schedule from vox.
+
+To do this, we split each podcast transcript into their individual words and pass each word through through a sentiment analysis pipeline. The pipeline takes each word from the transcript and assign it a sentiment value. For instance the word "love" has a sentiment value of 0.75, while the value of "murder" is -0.75.
+
+How do we get these sentiment values? Since language is so ambiguous, we have expert linguists label the numerical sentiment of each word without any context. These numerical values are aggregated into a larger dictionary or lexicon like the Syzuhet dictionary or the NRC Emotion Lexicon. We used both the Syzuhet dictionary and NRC Emotion Lexicon to perform our sentiment analysis.
+
+We first pre-processed the data for binary sentiment analysis.
+
+```{r, echo = FALSE}
+head(podcasts_sentiment_2024)
+```
+
+After cleaning and pre-processing, we found the sentiment scores for each podcast. There are some things to note. First, the news is moderately pretty positive, and podcast are even moreso! The sentiment for articles are about a positive 8.25 on average on average while the average for podcasts seem are 15.12, double that of articles. This is odd since normally the news is associated with fear and negativity.
+
+If our model of language is correct and we can sum the sentiment of multiple words together, we can make a judgement that the podcasts are more positive than the articles.
+
+```{r, echo = FALSE}
+worst_sentiment_article %>%
+  select(title, sentiment) %>%
+  slice(1)
+
+worst_sentiment_podcast %>%
+  select(title, sentiment) %>%
+  slice(1)
+```
+
+Digging deeper into the data, we decided to isolate the podcasts and articles with the best and worst sentiments. We found that the both articles and podcast were about wars in the middle east. Specifically, those wars were the Hamas-Israel conflict and the Sudanese civil war respectively.
+
+```{r, echo = FALSE}
+best_sentiment_article %>%
+  select(title, sentiment) %>%
+  slice(1)
+
+best_podcast_sentiment %>%
+  select(title, sentiment) %>%
+  slice(1)
+```
+
+By contrast the best article and podcast sentiment were on completely different topics. The best sentiment article was about having panic attacks about joy whereas the best sentiment podcast was about bringing back the SAT.
+
+#### Sentiment over 2024
+
+Our sentiment analysis of articles and podcasts over the year 2024 reveals similar trends and behaviors across the two media formats.
+
+For articles, the sentiment scores jump around with a mix of positive and negative values, but overall, we notice a slight upward trend, showing that articles become a bit more positive as the year goes on. Most of the scores cluster near neutral, which tells us that articles tend to stay pretty steady and balanced. We believe this may be due to editorial choices that keep the news source consistent.
+
+```{r,echo = FALSE, error = FALSE}
+articles_2024_viz
+```
+
+For podcasts, we see a much more slightly dynamic pattern. There’s a slight rise in positive sentiment around the middle of the year, but then it starts to dip again as the year wraps up. This suggests podcasts might be responding to changing events or themes over time. Podcasts seem to exhibit sharper sentiment scores in the greater than 40 in the negative and positive direction indicating people may use stronger words in conversation compared to text.
+
+```{r, echo = FALSE, error = FALSE}
+podcast_2024_viz
+```
+
+### Sentiment over the best and worst texts
+
+For the podcasts and articles with the worst and best sentiment score. We plotted the sentiment score over narrative time (were one point in narrative time correlating with a word in the text). We took the ten word moving average for each point in narrative time since the data was extremely volatile.
+
+**Worst Sentiment Scores**
+
+For both the worst sentiment article and worst sentiment podcast, both their moving average trended below 0 for the majority of narrative time. There seems to be a slight trend upward at narrative time \~800 in the article sentiment moving average but the majority of moving average stays below 0 still during that time. The narrative time for the article is longer than the narrative time for the podcast.
+
+```{r, error = FALSE, echo = FALSE}
+article_worst
+podcast_worst
+```
+
+**Best Sentiment Scores**
+
+For the podcast best sentiment score, the sentiment score stays fairly neutral, with small fluctuations above zero for most of the narrative. We notice a sharp dip midway through, which could indicate a particularly negative segment before returning to balance. The overall tone remains steady without big swings, except for that standout drop.
+
+For the article best sentiment score, the sentiment score stays above 0 by a significant margin. There's much more varability and like the worst sentiment score, the article has a longer narrative time than the article.
+
+```{r, error = FALSE}
+article_best
+podcast_best
+```
+
+**Comparing emotional levels across articles and podcasts**
+
+Looking at the specific emotional content of the words we find that both the articles and the podcast are very similar, almost exactly the same in percentage. We can see that vox prioritizes trust in their news coverage more than anything else. This seems like a positive marker for the new source since it brings credibility to their reporting. Although we can still see fear still has a relatively high percentage of words in our article-podcast dataset.
+
+```{r}
+nrc_emotional_levels_viz
+```
+
+### Conclusions
+
+In conclusion, our sentiment analysis of Vox podcasts and articles from 2024 revealed some interesting insights into how news media tone varies across different formats. Overall, we found that both podcasts and articles maintain a relatively neutral to slightly positive tone on average. However, podcasts exhibited more variability and stronger sentiment swings in both the positive and negative directions compared to articles. This suggests the more conversational nature of podcasts allows for greater emotional range and dynamism, while articles adhere to a steadier, more balanced tone, likely due to editorial standards. When examining the best and worst sentiment scores, the lowest scoring podcast and article both focused on coverage of conflicts and wars, while the most positive podcast and article covered more light-hearted, emotionally uplifting content. Across both media, our emotional analysis showed that words related to trust were most prevalent, indicating vox's focus on credibility in its reporting. However, words associated with fear were also notably frequent, perhaps unavoidable in news coverage. In short, while both media follow similar sentiment trends overall, key differences emerge in their variability, topical drivers of extreme emotions, and format-specific patterns.
+
+As with any analysis, our work has some limitations worth noting. Firstly, our dataset focuses solely on Vox media, so our findings may not be generalizable to other news outlets. Vox's editorial slant, target audience and topical focus is unique, so sentiment patterns we observed may not hold for drastically different media entities, such as those with an overt political bias or niche focus. Furthermore, the Syuzhet sentiment analysis package, while a powerful tool, is not infallible - it relies on predetermined word scores which may not always perfectly capture the nuanced emotions of a text, especially for words whose meaning is highly context-dependent. We also only focused on overall valence (positive vs negative) rather than more complex emotional states. Finally, by analyzing data from a single year, our findings offer a snapshot in time, but sentiment may evolve in the long run based on shifting news cycles and sociopolitical climates. To build on this exploratory work, future analyses could expand the dataset across different news sources, compare multiple years, and explore more granular emotional analysis.
+
+### Work Cited:
+
+-   https://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm
+
+-   https://cran.r-project.org/web/packages/syuzhet/vignettes/syuzhet-vignette.html
+
+-   https://stackoverflow.com/
+
+### R Version
+
+```{r, echo = FALSE}
+sessionInfo()
+```
+
+
