@@ -31,5 +31,14 @@
   },
   "projects/iris.qmd": {
     "iris.html": "17e302b0"
+  },
+  "projects/vox-sentiment-analysis/index.qmd": {
+    "index.html": "12659f0f"
+  },
+  "projects/tank-trouble/index.qmd": {
+    "index.html": "037c0e61"
+  },
+  "projects/bird-viz/index.qmd": {
+    "index.html": "d79f57ac"
   }
 }

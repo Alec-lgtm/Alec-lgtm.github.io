@@ -1,10 +1,8 @@
 ---
 title: "Sentiment Analysis on Vox Podcasts: Insights into the Voice of News"
 date: 12-01-2024
-about:
-  template: solana
-editor: visual
 author: Aki Wada and Alec Chen
+format: html
 ---
 
 
@@ -40,21 +38,21 @@ We downloaded all the 256 podcast transcripts from the vox [google drive](https:
 
 We first analyzed the distribution of words in vox podcasts and vox articles. We took the top twenty most frequent words out of the vox podcasts and vox articles. We removed words that provided no emotional meaning like "and" and "the".
 
-![](figures/vox_podcasts_top_words.png)
+![](figures/word_freq/vox_podcasts_top_words.png)
 
 For vox podcasts, words like "like," "know," "think," and "really" suggest that the conversational and relatable tone of Vox podcasts remains a strong characteristic. Recurring words like "Trump" and "Noel" indicate important and recurring characters on the show. In this case, "Noel" and "Sean" are both the authors of the podcast so their names are frequent words where the word "Trump" indicates that the Vox podcast talks about Trump a significant amount of the time.
 
-![](figures/vox_articles_top_words.png)
+![](figures/word_freq/vox_articles_top_words.png)
 
 In vox articles, we see similar informal language like "like" and "also". The topics are similar with the word "Trump" ranking similarly highly among vox articles. This suggests both vox podcasts and articles have a slightly positive to neutral tone
 
 We can visualize these word frequencies in a word cloud. Below is the word cloud for vox podcasts. The green word "people" and smaller in size purple word "right" indicate that Vox podcast is a human-centric podcast focused on correct decisions in terms of societal good.
 
-![Vox Podcast Word Cloud](figures/vox_podcasts_wordcloud.png)
+![Vox Podcast Word Cloud](figures/word_freq/vox_podcasts_wordcloud.png)
 
 The vox article word cloud shows many of the same words but notably, the word "know" is missing. Of note, many of the smaller words on the vox article word cloud indicate much more formal language. For example words like "government", state" and "law" in the vox articles can be constrasted with words like "things", "part" and "yeah" from the vox podcast.
 
-![Vox Article Word Cloud](figures/vox_articles_wordcloud.png)
+![Vox Article Word Cloud](figures/word_freq/vox_articles_wordcloud.png)
 
 Overall, this suggests that while both vox podcasts and articles have a generally informal and approachable tone, vox articles are more formal than vox podcasts.
 

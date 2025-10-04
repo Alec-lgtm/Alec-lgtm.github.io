@@ -2,8 +2,9 @@
   {
     "listing": "/projects.html",
     "items": [
-      "/projects/bird-viz/bird-viz.html",
-      "/projects/tank-trouble/tank-trouble.html"
+      "/projects/vox-sentiment-analysis/index.html",
+      "/projects/bird-viz/index.html",
+      "/projects/tank-trouble/index.html"
     ]
   }
 ]
